@@ -18,7 +18,7 @@
 
         <link rel="icon" href="static/favicon.ico" type="image/x-icon">
 
-      </head>
+</head>
 
 <body>
 
@@ -26,27 +26,56 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Crowther</a>
+        <a id="back_p" class="navbar-brand" href="#" style="display: none" onclick="back_p()">返回</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">档案</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">登陆</a>
-            </li>
+
+              <!--log in-->
+              <div id="login" class="dropdown show">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      登录
+                  </a>
+                  <div class="dropdown-menu">
+                      <form class="px-4 py-3" id="login_form" onsubmit="return submit_login_form()">
+                          <div class="form-group">
+                              <label for="exampleDropdownFormEmail1">邮箱</label>
+                              <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleDropdownFormPassword1">密码</label>
+                              <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword1">
+                          </div>
+                          <div class="form-check">
+                              <input type="checkbox" name="checkbox" class="form-check-input" id="dropdownCheck" >
+                              <label class="form-check-label"  for="dropdownCheck" >
+                                  下次自动登录
+                              </label>
+                          </div>
+                          <input type="submit" class="btn btn-primary" value="登录">
+                      </form>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">第一次来到Crowther? 注册</a>
+                      <a class="dropdown-item" href="#">忘记密码了</a>
+                  </div>
+              </div>
+
+              <!--account-->
+              <div class="dropdown show" id="account" style="display: none">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      账户
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" id="change password_button" href="#">修改密码</a>
+                      <a class="dropdown-item" id="change_email_button" href="#">修改邮箱</a>
+                      <a class="dropdown-item" id="log_out_button" href="#">注销</a>
+                  </div>
+              </div>
+
           </ul>
         </div>
       </div>
@@ -55,119 +84,110 @@
     <!-- Page Content -->
     <div class="container">
 
-        <div class="row" id="posts">
+        <!--posts-->
+        <div  id="posts">
+            <div class="row" id="post_card">
 
-        <!-- Blog Entries Column -->
-            <div class="col">
+            <!-- Blog Entries Column -->
+                <div class="col">
 
-
-          <!-- Blog Post -->
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h2 class="card-title">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Posted on January 1, 2017 by
-                        <a href="#">Start Bootstrap</a>
+              <!-- Blog Post -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title">Post Title</h2>
+                            <p class="card-text">body</p>
+                            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            time
+                            <a href="#">username</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-      <!-- /.row -->
-        <div class="row" id="post">
+
+        <!--post-->
+
+        <div class="row" id="post" style="display: none">
 
             <!-- Post Content Column -->
-            <div class="col">
+            <div class="row">
+                <div class="col">
 
-                <!-- Title -->
-                <h1 class="mt-4">Post Title</h1>
+                    <!-- Title -->
+                    <h1 id="post_title" class="mt-4">Post Title</h1>
 
-                <!-- Author -->
-                <p class="lead">
-                    by
-                    <a href="#">Start Bootstrap</a>
-                </p>
+                    <!-- Author -->
+                    <p class="lead">
+                        by
+                        <a id="post_author" href="#">Start Bootstrap</a>
+                    </p>
 
-                <hr>
+                    <hr>
 
-                <!-- Date/Time -->
-                <p>Posted on January 1, 2018 at 12:00 PM</p>
+                    <!-- Date/Time -->
+                    <p id="post_time">time</p>
 
-                <hr>
+                    <hr>
 
-                <!-- Preview Image -->
-                
+                    <!-- Preview Image -->
 
-                <!-- Post Content -->
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
+                    <!-- Post Content -->
+                    <p id="post_content" class="text-justify">content</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+                    <hr>
 
-                <blockquote class="blockquote">
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="blockquote-footer">Someone famous in
-                        <cite title="Source Title">Source Title</cite>
-                    </footer>
-                </blockquote>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
-
-                <hr>
-
-                <!-- Comments Form -->
-                <div class="card my-4">
-                    <h5 class="card-header">Leave a Comment:</h5>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Single Comment -->
-                <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                    <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
-
-                <!-- Comment with nested comments -->
-                <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                    <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-                        <div class="media mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
+                    <!-- Comments Form -->
+                    <div class="card my-4">
+                        <h5 class="card-header">Leave a Comment:</h5>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
                         </div>
-
-                        <div class="media mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-
                     </div>
-                </div>
 
+                    <!-- Single Comment -->
+                    <div class="media mb-4">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                        <div class="media-body">
+                            <h5 class="mt-0">Commenter Name</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+
+                    <!-- Comment with nested comments -->
+                    <div class="media mb-4">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                        <div class="media-body">
+                            <h5 class="mt-0">Commenter Name</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                            <div class="media mt-4">
+                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Commenter Name</h5>
+                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                </div>
+                            </div>
+
+                            <div class="media mt-4">
+                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Commenter Name</h5>
+                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
 
@@ -178,19 +198,18 @@
 
         </div>
 
-        <div class="row" id="login" style="display: none">
 
-        </div>
-
-        <div class="row" id="register" style="display: none">
-
-        </div>
 
         <div class="row" id="change_password" style="display: none">
 
         </div>
 
         <div class="row" id="change_email" style="display: none">
+
+        </div>
+
+        <!--sigu up-->
+        <div class="row" id="sigu_up" style="display: none">
 
         </div>
 
@@ -202,6 +221,9 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="event.js"></script>
+    <script src="vendor/jquery.form.js"></script>
+    <script src="vendor/moment.js"></script>
 
 </body>
 

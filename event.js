@@ -118,7 +118,9 @@ function back_p(){
     posts.show();
 }
 
-function user(envent){
-    console.log(envent);
+function user(user_url){
+    var response =$.getJSON(user_url.data.user).done(function (data) {
+        console.log(data)
+    });
 }
 

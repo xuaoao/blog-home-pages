@@ -6,31 +6,6 @@ var post = $('#post');
 var next_page = null;
 
 
-function submit_login_form(){
-
-    var form = $('#login_form');
-
-
-    var options = {
-        url: 'http://192.168.109.150:80/api/main/login',
-        type: 'post',
-        success:function(data){
-        console.log(data);
-        }
-    };
-    form.ajaxForm(options);
-
-
-
-
-
-    login.hide();
-    account.show();
-
-    return false;
-}
-
-
 $(function () {
     var response =$.getJSON('/api/posts').done(function (data) {
         next_page = data.next;
